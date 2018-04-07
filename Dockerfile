@@ -26,6 +26,6 @@ CMD git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
     && git clone --branch $GIT_BRANCH $GIT_URL /hugo/site \
     && cd /hugo/site \
-    && hugo server --bind 0.0.0.0
+    && hugo server --bind 0.0.0.0 --baseURL=127.0.0.1
 
 
