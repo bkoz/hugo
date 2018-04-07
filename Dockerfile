@@ -1,3 +1,4 @@
+USER swuser
 FROM centos
 
 ENV GIT_URL=https://github.com/RedHatGov/redhatgov.github.io
@@ -8,12 +9,6 @@ RUN yum -y install wget https://dl.fedoraproject.org/pub/epel/epel-release-lates
 RUN wget -O /etc/yum.repos.d/daftaupe-hugo-epel-7.repo  https://copr.fedorainfracloud.org/coprs/daftaupe/hugo/repo/epel-7/daftaupe-hugo-epel-7.repo
 
 RUN yum -y install hugo rubygem-asciidoctor git
-
-RUN mkdir /home/swuser && groupadd -r swuser -g 433 && \
-useradd -u 431 -r -g swuser -s /sbin/nologin -c "Docker image user" swuser && \
-chown -R swuser:swuser /home/swuser
-
-USER swuser
 
 CMD git clone --branch $GIT_BRANCH $GIT_URL /var/tmp/site && cd /var/tmp/site && hugo server --bind 0.0.0.0
 
