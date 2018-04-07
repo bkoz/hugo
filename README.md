@@ -24,7 +24,8 @@ $ oc new-app https://github.com/bkoz/hugo.git -e GIT_URL=https://github.com/bkoz
 $ oc expose svc/hugo
 ```
 
-The ```BASE_URL``` should be set to the OpenShift route. If the route is not known in advance, simple update the deployment config as follows:
+The ```BASE_URL``` environment variable should be set to the OpenShift route. 
+If the route is not known in advance, simple update the deployment config as follows:
 
 Example:
 
