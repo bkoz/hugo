@@ -19,12 +19,14 @@ Run a hugo server for workshop content.
 Example run commands:
 
 ```bash
+$ oc new-project workshops
 $ oc new-app https://github.com/bkoz/hugo.git -e GIT_URL=https://github.com/bkoz/redhatgov.github.io.git -e GIT_BRANCH=bkoz-dev -e BASE_URL=http://hugo-workshops.apps.eadgbe.net
 
 $ oc expose svc/hugo
 ```
 
-The ```BASE_URL``` environment variable should be set to the OpenShift route. 
+NOTE: The ```BASE_URL``` environment variable must be set to the OpenShift route
+otherwise the rendered web pages will be missing elements. 
 If the route is not known in advance, update the deployment config as follows:
 
 ```bash
