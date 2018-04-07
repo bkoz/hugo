@@ -2,18 +2,6 @@
 
 Run a hugo server for workshop content.
 
-## Hosting with Docker
-
-```bash
-# git clone https://github.com/bkoz/hugo.git
-
-# cd hugo
-
-# docker build --force-rm --rm --tag=centos-hugo .
-
-# docker run --rm -it -p1313:1313 -e GIT_URL=https://github.com/bkoz/redhatgov.github.io -e GIT_BRANCH=bkoz-dev -e APPEND_PORT=true -e BASE_URL=http://localhost centos-hugo
-```
-
 ## Hosting with OpenShift
 
 Example run commands:
@@ -45,4 +33,13 @@ deploymentconfig "hugo" updated
 ```
 
 The change in the deployment configuration should trigger a new pod.
+
+## Hosting with Docker (if you must)
+
+```bash
+# git clone https://github.com/bkoz/hugo.git
+# cd hugo
+# docker build --force-rm --rm --tag=centos-hugo .
+# docker run --rm -it -p1313:1313 -e GIT_URL=https://github.com/bkoz/redhatgov.github.io -e GIT_BRANCH=bkoz-dev -e APPEND_PORT=true -e BASE_URL=http://localhost centos-hugo
+```
 
