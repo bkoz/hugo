@@ -9,7 +9,11 @@ RUN wget -O /etc/yum.repos.d/daftaupe-hugo-epel-7.repo  https://copr.fedorainfra
 
 RUN yum -y install hugo rubygem-asciidoctor git
 
-USER 1001
+RUN groupadd -r swuser -g 433 && \
+useradd -u 431 -r -g swuser -d /home/swuser -s /sbin/nologin -c "Docker image user" swuser && \
+chown -R swuser:swuser /home/swuser
+
+USER swuser
 
 CMD git clone --branch $GIT_BRANCH $GIT_URL /var/tmp/site && cd /var/tmp/site && hugo server --bind 0.0.0.0
 
