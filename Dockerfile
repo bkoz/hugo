@@ -1,5 +1,6 @@
 FROM centos
-USER swuser
+
+USER 1001
 
 ENV GIT_URL=https://github.com/RedHatGov/redhatgov.github.io
 ENV GIT_BRANCH=docs
