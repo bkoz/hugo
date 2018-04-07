@@ -10,6 +10,15 @@ RUN wget -O /etc/yum.repos.d/daftaupe-hugo-epel-7.repo  https://copr.fedorainfra
 
 RUN yum -y install hugo rubygem-asciidoctor git
 
+RUN useradd -m workshopper && mkdir /workshopper \
+    && chown workshopper:workshopper /workshopper && chmod 777 /workshopper
+
+USER workshopper
+WORKDIR /workshopper
+ENV HOME /workshopper
+
+RUN mkdir -p cache && chmod 777 cache
+
 CMD git clone --branch $GIT_BRANCH $GIT_URL /var/tmp/site && cd /var/tmp/site && hugo server --bind 0.0.0.0
 
 
