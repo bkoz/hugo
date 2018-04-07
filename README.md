@@ -25,9 +25,7 @@ $ oc expose svc/hugo
 ```
 
 The ```BASE_URL``` environment variable should be set to the OpenShift route. 
-If the route is not known in advance, simple update the deployment config as follows:
-
-Example:
+If the route is not known in advance, update the deployment config as follows:
 
 ```bash
 $ oc get routes
