@@ -22,11 +22,12 @@ EXPOSE 1313
 ENV GIT_URL=https://github.com/RedHatGov/redhatgov.github.io
 ENV GIT_BRANCH=docs
 ENV APPEND_PORT=false
+ENV BASE_URL=127.0.0.1
 
 CMD git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
     && git clone --branch $GIT_BRANCH $GIT_URL /hugo/site \
     && cd /hugo/site \
-    && hugo server --bind 0.0.0.0 --baseURL=127.0.0.1 --appendPort=$APPEND_PORT
+    && hugo server --bind 0.0.0.0 --baseURL=$BASE_URL --appendPort=$APPEND_PORT
 
 
