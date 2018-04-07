@@ -39,6 +39,9 @@ Use the HOST/PORT value obtained above to set the BASE_URL environment variable.
 
 ```bash
 $ oc env dc/hugo BASE_URL=http://hugo-workshops.apps.eadgbe.net
+
+deploymentconfig "hugo" updated
+
 ```
 
 The change in the deployment configuration should trigger a new pod.
