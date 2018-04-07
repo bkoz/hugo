@@ -22,10 +22,10 @@ EXPOSE 1313
 ENV GIT_URL=https://github.com/RedHatGov/redhatgov.github.io
 ENV GIT_BRANCH=docs
 
-CMD git config --global user.email "you@example.com" 
-    && git config --global user.name "Your Name" 
-    && git clone --branch $GIT_BRANCH $GIT_URL /workshopper/site 
-    && cd /workshopper/site 
+CMD git config --global user.email "you@example.com" \
+    && git config --global user.name "Your Name" \
+    && git clone --branch $GIT_BRANCH $GIT_URL /workshopper/site \
+    && cd /workshopper/site \
     && hugo server --bind 0.0.0.0
 
 
