@@ -19,6 +19,10 @@ ENV HOME /workshopper
 
 RUN mkdir -p cache && chmod 777 cache
 
+COPY . ./
+
+EXPOSE 1313
+
 CMD git clone --branch $GIT_BRANCH $GIT_URL /var/tmp/site && cd /var/tmp/site && hugo server --bind 0.0.0.0
 
 
