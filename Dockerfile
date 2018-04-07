@@ -9,6 +9,8 @@ RUN wget -O /etc/yum.repos.d/daftaupe-hugo-epel-7.repo  https://copr.fedorainfra
 
 RUN yum -y install hugo rubygem-asciidoctor git
 
+USER 1001
+
 CMD git clone --branch $GIT_BRANCH $GIT_URL /var/tmp/site && cd /var/tmp/site && hugo server --bind 0.0.0.0
 
 
